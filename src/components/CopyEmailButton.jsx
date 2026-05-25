@@ -18,7 +18,7 @@ export default function CopyEmailButton({ className = "" }) {
   }
 
   return (
-    <div className="relative inline-flex items-center">
+    <div className="relative inline-flex">
       <button
         type="button"
         onClick={copyEmail}
@@ -47,7 +47,7 @@ export default function CopyEmailButton({ className = "" }) {
       {copied ? (
         <span
           role="status"
-          className="absolute -bottom-6 left-0 whitespace-nowrap text-xs font-semibold text-[#3e693f]"
+          className="absolute left-1/2 top-[2.125rem] mt-px -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-[#3e693f] sm:top-full sm:mt-0.5"
         >
           Copied!
         </span>
