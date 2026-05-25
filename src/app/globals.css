@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --cai-purple: #8351a5;
+  --cai-green: #3e693f;
+  --cai-pink: #f5c1c6;
+  --cai-gold: #efa323;
+  --cai-teal: #2788a7;
+  --cai-burgundy: #450508;
 }
 
 @theme inline {
@@ -12,15 +18,221 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: var(--cai-pink);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.animated-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--cai-pink) 0%,
+    #fff5f0 35%,
+    #e8f4f8 70%,
+    var(--cai-teal) 100%
+  );
+}
+
+.animated-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    -45deg,
+    var(--cai-purple),
+    var(--cai-green),
+    var(--cai-pink),
+    var(--cai-gold),
+    var(--cai-teal),
+    var(--cai-burgundy)
+  );
+  background-size: 400% 400%;
+  opacity: 0.35;
+  animation: gradient-shift 18s ease infinite;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 55vw;
+  height: 55vw;
+  max-width: 520px;
+  max-height: 520px;
+  background: var(--cai-purple);
+  top: -10%;
+  left: -8%;
+  animation: drift-1 22s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 50vw;
+  height: 50vw;
+  max-width: 480px;
+  max-height: 480px;
+  background: var(--cai-green);
+  top: 20%;
+  right: -12%;
+  animation: drift-2 26s ease-in-out infinite;
+}
+
+.blob-3 {
+  width: 48vw;
+  height: 48vw;
+  max-width: 460px;
+  max-height: 460px;
+  background: var(--cai-pink);
+  bottom: 5%;
+  left: 15%;
+  animation: drift-3 20s ease-in-out infinite;
+}
+
+.blob-4 {
+  width: 42vw;
+  height: 42vw;
+  max-width: 400px;
+  max-height: 400px;
+  background: var(--cai-gold);
+  top: 45%;
+  left: 35%;
+  animation: drift-4 24s ease-in-out infinite;
+}
+
+.blob-5 {
+  width: 52vw;
+  height: 52vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: var(--cai-teal);
+  bottom: -15%;
+  right: 5%;
+  animation: drift-5 28s ease-in-out infinite;
+}
+
+.blob-6 {
+  width: 38vw;
+  height: 38vw;
+  max-width: 360px;
+  max-height: 360px;
+  background: var(--cai-burgundy);
+  top: 55%;
+  left: -5%;
+  opacity: 0.7;
+  animation: drift-6 30s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes drift-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(12%, 18%) scale(1.08);
+  }
+}
+
+@keyframes drift-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-15%, 12%) scale(1.05);
+  }
+}
+
+@keyframes drift-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(10%, -14%) scale(1.1);
+  }
+}
+
+@keyframes drift-4 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-8%, -10%) scale(0.95);
+  }
+}
+
+@keyframes drift-5 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-12%, -8%) scale(1.06);
+  }
+}
+
+@keyframes drift-6 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(18%, -12%) scale(1.04);
+  }
+}
+
+@keyframes reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.survey-reveal {
+  opacity: 0;
+  animation: reveal-fade-up 0.7s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.icons-reveal {
+  opacity: 0;
+  animation: reveal-fade-up 0.7s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-background::after,
+  .blob {
+    animation: none;
+  }
+
+  .survey-reveal,
+  .icons-reveal {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
 }
