@@ -223,6 +223,26 @@ body {
   animation-delay: 0.5s;
 }
 
+@media (max-width: 639px) {
+  .blob {
+    filter: blur(56px);
+  }
+
+  .blob-1,
+  .blob-2,
+  .blob-3,
+  .blob-4,
+  .blob-5,
+  .blob-6 {
+    max-width: 280px;
+    max-height: 280px;
+  }
+
+  .animated-background::after {
+    opacity: 0.28;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animated-background::after,
   .blob {

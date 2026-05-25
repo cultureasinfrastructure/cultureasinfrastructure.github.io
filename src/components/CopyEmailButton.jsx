@@ -27,7 +27,7 @@ export default function CopyEmailButton({ className = "" }) {
             ? "Email copied to clipboard"
             : `Copy email ${EMAIL} to clipboard`
         }
-        className={`inline-flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-[#450508] transition-colors hover:text-[#2788A7] ${className}`}
+        className={`inline-flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-[#450508] transition-colors hover:text-[#2788A7] sm:h-7 sm:w-7 ${className}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ export default function CopyEmailButton({ className = "" }) {
           strokeWidth="1.75"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-7 w-7"
+          className="h-6 w-6 sm:h-7 sm:w-7"
           aria-hidden="true"
         >
           <rect x="2" y="4" width="20" height="16" rx="2" />

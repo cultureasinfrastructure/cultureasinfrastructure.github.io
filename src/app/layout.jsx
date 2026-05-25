@@ -16,13 +16,21 @@ export const metadata = {
   description: "Culture as Infrastructure",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-dvh min-h-full flex-col overflow-x-hidden">
+        {children}
+      </body>
     </html>
   );
 }
